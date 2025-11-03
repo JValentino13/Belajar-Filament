@@ -18,13 +18,11 @@ class PenggunaResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Pengguna';
-
     public static function form(Schema $schema): Schema
     {
         return PenggunaForm::configure($schema);
     }
-    
+
     public static function table(Table $table): Table
     {
         return PenggunaForm::table($table);

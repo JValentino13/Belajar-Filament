@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Resources\Penggunas\Schemas;
 use PhpOption\None;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
+use Livewire\Attributes\Title;
 use PhpParser\Node\Stmt\Label;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -17,6 +18,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
+use Filament\Forms\Components\Placeholder;
 
 class PenggunaForm
 {
@@ -32,7 +34,7 @@ class PenggunaForm
     public static function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('Pengguna')
+            ->recordTitleAttribute('')
             ->columns([
                 TextColumn::make('nama')
                     ->searchable(),

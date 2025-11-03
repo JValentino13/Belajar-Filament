@@ -10,10 +10,22 @@ class ManagePenggunas extends ManageRecords
 {
     protected static string $resource = PenggunaResource::class;
 
+    public function getTitle(): string
+    {
+        return 'Kelola Pengguna';
+    }
+
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()
+                ->createAnother(false)
+                ->label('+ Tambah')
+                ->modalHeading('')
+                ->modalSubheading('Masukkan informasi akun pengguna di bawah ini.')
+                ->modalWidth('lg')
+                ,
         ];
     }
+
 }

@@ -11,11 +11,5 @@ class CreatePengguna extends CreateRecord
 {
     protected static string $resource = PenggunaResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            CreateAction::make()
-                ->createAnother(false),
-        ];
-    }
+
 }
