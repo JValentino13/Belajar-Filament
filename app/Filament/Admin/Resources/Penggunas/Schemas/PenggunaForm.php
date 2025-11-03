@@ -2,12 +2,21 @@
 
 namespace App\Filament\Admin\Resources\Penggunas\Schemas;
 
-use Filament\Forms\Components\Radio;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Schema;
 use PhpOption\None;
+use Filament\Tables\Table;
+use Filament\Schemas\Schema;
 use PhpParser\Node\Stmt\Label;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
+use Filament\Actions\CreateAction;
+use Filament\Actions\DeleteAction;
+use Filament\Forms\Components\Radio;
+use Filament\Actions\BulkActionGroup;
+use Filament\Forms\Components\Select;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ViewField;
 
 class PenggunaForm
 {
@@ -15,44 +24,46 @@ class PenggunaForm
     {
         return $schema
             ->components([
-                TextInput::make('nama')->label('Nama')->required()->maxLength(255),
-                TextInput::make('nis_nisn')->label('NIS/NISN')->required()->maxLength(20),
-                Select::make('role')->label('Role')->required()
-                ->options([
-                    'admin' => 'Admin',
-                    'kepsek' => 'Kepala Sekolah',
-                    'wakakur' => 'Wakil Kepala Sekolah Kurikulum',
-                    'wakasis' => 'Wakil Kepala Sekolah Kesiswaan',
-                    'wakahum' => 'Wakil Kepala Sekolah Humas',
-                    'wakasapra' => 'Wakil Kepala Sekolah Sarana dan Prasarana',
-                    'kkk' => 'Kepala Kompetensi Keahlian',
-                    'mentor' => 'Mentor/Pembimbing',
-                    'siswa' => 'Siswa'
-                    ])->native(false)->placeholder(''),
-                Select::make('kelas')->label('Kelas')->required()
-                ->options([
-                    '10' => '10',
-                    '11' => '11',
-                    '12' => '12',
-                ])->native(false)->placeholder(' '),
-                Select::make('konsentrasi_keahlian')->label('Konsentrasi Keahlian')->required()
-                ->options([
-                    'RPL' => 'RPL',
-                    'DKV' => 'DKV',
-                    'TKP' => 'TKP',
-                    'TP' => 'TP',
-                    'Kuliner' => 'Kuliner',
-                ])->native(false)->placeholder(''),
-                Radio::make('jenis_kelamin')->label('Jenis Kelamin')->required()
-                ->options([
-                    'L' => 'Laki-laki',
-                    'P' => 'Perempuan'
-                    ])->inline(),
-                Radio::make('status')->label('Status')->required()
-                ->options([
-                    'aktif' => 'Aktif',
-                    'non-aktif' => 'Non-Aktif'
-                    ])->inline(),
-                ]);
+                ViewField::make('tambah')
+                    ->view('filament.pages.tambah'),
+            ]);
             }
-        }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->recordTitleAttribute('Pengguna')
+            ->columns([
+                TextColumn::make('nama')
+                    ->searchable(),
+                TextColumn::make('nis_nisn')
+                    ->numeric()
+                    ->sortable(),
+                // TextColumn::make('kelas')
+                //     ->searchable(),
+                TextColumn::make('konsentrasi_keahlian')
+                    ->searchable(),
+                TextColumn::make('jenis_kelamin')
+                    ->searchable(),
+                TextColumn::make('status')
+                    ->searchable(),
+                TextColumn::make('role')
+                    ->searchable(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+            ])
+            ->filters([
+                //
+            ])
+            ->recordActions([
+                EditAction::make(),
+                DeleteAction::make(),
+            ]);
+    }
+}

@@ -2,20 +2,18 @@
 
 namespace App\Filament\Admin\Resources\Penggunas\Pages;
 
-use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\CreateRecord;
 use App\Filament\Admin\Resources\Penggunas\PenggunaResource;
-use Filament\Actions\Action;
+use Filament\Actions\CreateAction;
+use Filament\Resources\Pages\ManageRecords;
 
-class CreatePengguna extends CreateRecord
+class ManagePenggunas extends ManageRecords
 {
     protected static string $resource = PenggunaResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make()
-                ->createAnother(false),
+            CreateAction::make(),
         ];
     }
 }

@@ -2,17 +2,15 @@
 
 namespace App\Filament\Admin\Resources\Penggunas;
 
-use App\Filament\Admin\Resources\Penggunas\Pages\CreatePengguna;
-use App\Filament\Admin\Resources\Penggunas\Pages\EditPengguna;
 use App\Filament\Admin\Resources\Penggunas\Pages\ListPenggunas;
-use App\Filament\Admin\Resources\Penggunas\Schemas\PenggunaForm;
-use App\Filament\Admin\Resources\Penggunas\Tables\PenggunasTable;
-use App\Models\Pengguna;
 use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
+use App\Models\Pengguna;
 use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
+use App\Filament\Admin\Resources\Penggunas\Pages\ManagePenggunas;
+use App\Filament\Admin\Resources\Penggunas\Schemas\PenggunaForm;
 
 class PenggunaResource extends Resource
 {
@@ -20,29 +18,22 @@ class PenggunaResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?string $recordTitleAttribute = 'Pengguna';
+
     public static function form(Schema $schema): Schema
     {
         return PenggunaForm::configure($schema);
     }
-
+    
     public static function table(Table $table): Table
     {
-        return PenggunasTable::configure($table);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
+        return PenggunaForm::table($table);
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ListPenggunas::route('/'),
-            'create' => CreatePengguna::route('/create'),
-            'edit' => EditPengguna::route('/{record}/edit'),
+            'index' => ManagePenggunas::route('/'),
         ];
     }
 }
