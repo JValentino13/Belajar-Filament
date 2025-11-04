@@ -2,23 +2,14 @@
 
 namespace App\Filament\Admin\Resources\Penggunas\Schemas;
 
-use PhpOption\None;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
-use Livewire\Attributes\Title;
-use PhpParser\Node\Stmt\Label;
 use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
-use Filament\Actions\CreateAction;
-use Filament\Actions\DeleteAction;
 use Filament\Forms\Components\Radio;
-use Filament\Actions\BulkActionGroup;
 use Filament\Forms\Components\Select;
-use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
-use Filament\Forms\Components\Placeholder;
 
 class PenggunaForm
 {
@@ -26,19 +17,59 @@ class PenggunaForm
     {
         return $schema
             ->components([
-                ViewField::make('tambah')
-                    ->view('filament.pages.tambah'),
+                // ViewField::make('tambah')
+                //     ->view('filament.pages.tambah'),
+                TextInput::make('nama')
+                    ->required(),
+                TextInput::make('nis_nisn')
+                    ->numeric()
+                    ->required(),
+                Select::make('role')
+                    ->options([
+                        'admin' => 'Admin',
+                        'kepsek' => 'Kepala Sekolah',
+                        'wakakur' => 'Wakil Kepala Sekolah Bidang Kurikulum',
+                        'wakasis' => 'Wakil Kepala Sekolah Bidang Kesiswaan',
+                        'wakahum' => 'Wakil Kepala Sekolah Bidang Humas',
+                        'wakasar' => 'Wakil Kepala Sekolah Bidang Sarana dan Prasarana',
+                        'kkk' => 'Ketua Konsentrasi Keahlian',
+                        'mentor' => 'Mentor / Pembimbing',
+                        'siswa' => 'Siswa',
+                    ])
+                    ->required(),
+                Select::make('konsentrasi_keahlian')
+                    ->options([
+                        'RPL' => 'Rekayasa Perangkat Lunak',
+                        'DKV' => 'Desain Komunikasi Visual',
+                        'TKP' => 'Teknik Konstruksi dan Perumahan',
+                        'TP' => 'Teknik Pengelasan',
+                        'Kuliner' => 'Kuliner',
+                    ])
+                    ->required(),
+                Radio::make('jenis_kelamin')
+                    ->options([
+                        'L' => 'Laki-laki',
+                        'P' => 'Perempuan',
+                    ])
+                    ->required(),
+                Radio::make('status')
+                    ->options([
+                        'Aktif' => 'Aktif',
+                        'Tidak Aktif' => 'Tidak Aktif',
+                    ])
+                    ->required(),
             ]);
             }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('')
+
             ->columns([
                 TextColumn::make('nama')
                     ->searchable(),
                 TextColumn::make('nis_nisn')
+                    ->label('NIS/NISN')
                     ->numeric()
                     ->sortable(),
                 // TextColumn::make('kelas')
@@ -51,21 +82,15 @@ class PenggunaForm
                     ->searchable(),
                 TextColumn::make('role')
                     ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
-                EditAction::make(),
-                DeleteAction::make(),
-            ]);
+                EditAction::make('aksi')
+                    ->icon('feathericon-edit-2')
+                    ->modalHeading('')
+            ])
+            ->recordActionsColumnLabel('Aksi');
     }
 }

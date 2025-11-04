@@ -10,5 +10,17 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 
     --color-primary: #48A3A4;
+    --color-input: #E0FCFF;
+    --color-option: #242427;
+    --color-bg: #070B0F;
+
     --font-primary: "MuseoModerno", sans-serif;
+    --font-poppins: 'Poppins', sans-serif;
+    --font-figtree: 'Figtree', sans-serif;
+}
+
+@layer base {
+    body {
+        background-color: #070B0F;
+    }
 }

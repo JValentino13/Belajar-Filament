@@ -26,10 +26,7 @@ class PenggunasTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
-            ])
-            ->toolbarActions([
-                DeleteBulkAction::make()
+                EditAction::make('aksi'),
             ]);
     }
 }

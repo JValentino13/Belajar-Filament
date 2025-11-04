@@ -16,7 +16,12 @@ class PenggunaResource extends Resource
 {
     protected static ?string $model = Pengguna::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'fas-user-gear';
+
+    public static function getNavigationLabel(): string
+{
+    return 'Kelola Pengguna';
+}
 
     public static function form(Schema $schema): Schema
     {
