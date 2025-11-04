@@ -19,9 +19,9 @@ class PenggunaResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = 'fas-user-gear';
 
     public static function getNavigationLabel(): string
-{
-    return 'Kelola Pengguna';
-}
+    {
+        return 'Kelola Pengguna';
+    }
 
     public static function form(Schema $schema): Schema
     {

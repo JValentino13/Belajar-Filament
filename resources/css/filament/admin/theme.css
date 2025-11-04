@@ -1,0 +1,22 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/Admin/**/*';
+@source '../../../../resources/views/filament/admin/**/*';
+
+.fi-pagination .fi-pagination-overview {
+    display: none !important;
+}
+
+.fi-ta-cell > .fi-ta-col {
+    display: flex;
+    justify-content: flex-start; /* posisi isi ke kiri */
+    align-items: center; /* biar sejajar secara vertikal */
+    width: 100%;
+    border-right: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
+}
+
+.fi-ta-row {
+     @apply p-2!;
+}
+
