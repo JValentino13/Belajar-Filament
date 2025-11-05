@@ -19,11 +19,11 @@
 }
 
 .fi-topbar-open-collapse-sidebar-btn {
-    @apply mx-0! rounded-full  bg-primary absolute top-[85px] left-[4rem];
+    @apply mx-0! rounded-full bg-primary absolute top-[85px] left-[4rem];
 }
 
 .fi-topbar-close-collapse-sidebar-btn {
-    @apply mx-0! hidden lg:flex rounded-full bg-primary absolute top-[85px] left-[12rem];
+    @apply mx-0! hidden lg:flex rounded-full rotate-180 bg-primary absolute top-[85px] left-[12rem];
 }
 
 .fi-topbar-start {
