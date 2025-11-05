@@ -4,10 +4,15 @@
 @source '../../../../resources/views/filament/admin/**/*';
 
 .fi-ta-bulk-actions {
-    order: 2; 
+    order: 2;
     margin-left: auto;
 }
 
 .fi-ta-pagination {
     order: 1;
+}
+
+.fi-topbar:where(.dark,.dark *) {
+    background-color: var(--gray-950);
+
 }

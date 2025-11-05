@@ -63,7 +63,7 @@
 }
 
 .fi-sidebar-group-items {
-    @apply flex flex-col gap-y-1;
+    @apply flex flex-col gap-2 mt-10;
 }
 
 .fi-sidebar-group-btn,
@@ -164,7 +164,7 @@
 }
 
 .fi-sidebar-nav {
-    @apply flex grow flex-col gap-y-7 overflow-x-hidden overflow-y-auto px-6 py-8;
+    @apply flex grow flex-col gap-y-7 overflow-x-hidden overflow-y-auto px-3 pl-6 py-8 border-r-2 border-white/8;
     scrollbar-gutter: stable;
 }
 

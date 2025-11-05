@@ -1,5 +1,5 @@
 .fi-topbar-ctn {
-    @apply sticky top-0 z-30 overflow-x-clip;
+    @apply sticky top-0 z-30 overflow-x-clip bg-red-600;
 }
 
 .fi-topbar {
@@ -19,11 +19,11 @@
 }
 
 .fi-topbar-open-collapse-sidebar-btn {
-    @apply mx-0!;
+    @apply mx-0! rounded-full  bg-primary absolute top-[85px] left-[4rem];
 }
 
 .fi-topbar-close-collapse-sidebar-btn {
-    @apply mx-0! hidden lg:flex;
+    @apply mx-0! hidden lg:flex rounded-full bg-primary absolute top-[85px] left-[12rem];
 }
 
 .fi-topbar-start {
