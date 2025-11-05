@@ -3,20 +3,11 @@
 @source '../../../../app/Filament/Admin/**/*';
 @source '../../../../resources/views/filament/admin/**/*';
 
-.fi-pagination .fi-pagination-overview {
-    display: none !important;
+.fi-ta-bulk-actions {
+    order: 2; 
+    margin-left: auto;
 }
 
-.fi-ta-cell > .fi-ta-col {
-    display: flex;
-    justify-content: flex-start; /* posisi isi ke kiri */
-    align-items: center; /* biar sejajar secara vertikal */
-    width: 100%;
-    border-right: 1px solid #FFFFFF;
-    border-left: 1px solid #FFFFFF;
+.fi-ta-pagination {
+    order: 1;
 }
-
-.fi-ta-row {
-     @apply p-2!;
-}
-

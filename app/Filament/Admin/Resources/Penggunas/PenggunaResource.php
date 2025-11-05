@@ -2,15 +2,14 @@
 
 namespace App\Filament\Admin\Resources\Penggunas;
 
-use App\Filament\Admin\Resources\Penggunas\Pages\ListPenggunas;
 use BackedEnum;
 use App\Models\Pengguna;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
-use Filament\Support\Icons\Heroicon;
-use App\Filament\Admin\Resources\Penggunas\Pages\ManagePenggunas;
 use App\Filament\Admin\Resources\Penggunas\Schemas\PenggunaForm;
+use App\Filament\Admin\Resources\Penggunas\Pages\ManagePenggunas;
+use App\Filament\Admin\Resources\Penggunas\Tables\PenggunasTable;
 
 class PenggunaResource extends Resource
 {
@@ -18,10 +17,9 @@ class PenggunaResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'fas-user-gear';
 
-    public static function getNavigationLabel(): string
-    {
-        return 'Kelola Pengguna';
-    }
+    protected static ?string $recordTitleAttribute = 'Kelola Pengguna';
+
+    protected static ?string $navigationLabel = 'Kelola Pengguna';
 
     public static function form(Schema $schema): Schema
     {
@@ -30,7 +28,14 @@ class PenggunaResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return PenggunaForm::table($table);
+        return PenggunasTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
     }
 
     public static function getPages(): array
