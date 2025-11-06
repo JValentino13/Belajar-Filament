@@ -19,6 +19,8 @@ class PenggunaResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'Kelola Pengguna';
 
+    protected static ?string $slug= 'Kelola-Pengguna';
+
     protected static ?string $navigationLabel = 'Kelola Pengguna';
 
     public static function form(Schema $schema): Schema

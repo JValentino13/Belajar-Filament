@@ -3,7 +3,7 @@
 @source '../../../../app/Filament/Admin/**/*';
 @source '../../../../resources/views/filament/admin/**/*';
 
-.fi-ta-bulk-actions {
+.fi-ta-bulk-actions{
     order: 2;
     margin-left: auto;
 }

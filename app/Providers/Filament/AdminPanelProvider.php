@@ -27,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->userMenu(false)
             ->sidebarWidth('210px')
+            ->globalSearch(false)
             ->topbar(true)
             ->sidebarCollapsibleOnDesktop(true)
             ->breadcrumbs(false)

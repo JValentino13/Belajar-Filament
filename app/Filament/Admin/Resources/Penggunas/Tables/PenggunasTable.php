@@ -24,6 +24,7 @@ class PenggunasTable
                 TextColumn::make('status')->label('Status')->searchable()->sortable(),
                 TextColumn::make('role')->label('Role')->searchable()->sortable(),
             ])
+            ->view('filament.pages.custom')
             ->filters([
                 //
             ])
@@ -31,9 +32,6 @@ class PenggunasTable
             ->recordActions([
                 EditAction::make('aksi')
                     ->icon('feathericon-edit-2'),
-            ])
-            ->bulkActions([
-
             ])
             ->toolbarActions([
                 DeleteBulkAction::make()

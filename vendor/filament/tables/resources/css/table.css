@@ -2,19 +2,19 @@
     @apply w-full table-auto divide-y divide-gray-200 text-start dark:divide-white/5;
 
     & > thead {
-        @apply divide-y divide-gray-200 dark:divide-white/5;
+        @apply divide-y divide-gray-200 dark:divide-white ;
 
         & > tr {
-            @apply bg-gray-50 dark:bg-white/5;
+            @apply bg-gray-50 dark:bg-[#1D2E32];
 
             &.fi-ta-table-head-groups-row {
-                @apply bg-gray-100 dark:bg-transparent;
+                @apply bg-gray-100 dark:bg-amber-500;
             }
         }
     }
 
     & > tbody {
-        @apply divide-y divide-gray-200 whitespace-nowrap dark:divide-white/5;
+        @apply divide-y-[1rem] divide-gray-200  dark:divide-[#1D2E32];
     }
 
     & > tfoot {
